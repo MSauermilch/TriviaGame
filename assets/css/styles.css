@@ -1,0 +1,26 @@
+#body{
+    background-image: url(../images/harley3.jpg);
+    padding: 100px;
+}
+
+.container{
+    border: solid blue 5px;
+    border-radius:8px;
+}
+
+#subContainer {
+    border: solid blue 4px;
+    border-radius:8px;
+    background-color: turquoise;
+    
+}
+
+/* .title {
+    margin: auto;
+    width: 200px;
+} */
+
+#questionBar {
+    border: solid blue 2px;
+    border-radius: 4px;
+}
