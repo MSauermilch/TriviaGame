@@ -59,28 +59,27 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
      var correct = 0;
      var notCorrect = 0; // maybe create a percentage of correct answers
 
-
 //Game code
-
-
 
      function play() {
 
      var randomQ = [questionArray[Math.floor(Math.random() * questionArray.length)]]; //generates random question
           questionArray.shift(randomQ); //removes selected question from array
-     
+               console.log("randomQ: " + randomQ);
+
      var elements = randomQ.shift();// randomQ is an array with in an array, shift removes it and makes it simply an array.
-     
+               console.log("elements: " + elements);
 
      var question = elements[0]; //Game quesion.
-          $("#question").text(question);
+               console.log("question: " + question);
      
      elements.shift(elements[0]); //removes question/ first var[0] from arrays
 
      var answerWin = elements[0]; //answer replaces question[0]'s place in array if users choice equals this win!!!!!
-       
+               console.log("winning answer: " + answerWin);
+
      var answerArray = []; // empty random answer array
-     
+               console.log(answerArray);
 
      elements.sort(function() {
           return 0.5 - Math.random();
@@ -89,17 +88,42 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
      for (var i = 0; i < elements.length; i++) {
           answerArray.push(elements[i]);
           };
+     
+
+     function start(){
+          //Creates Question
+          var qButton = $('<div>');
+              qButton.text(question);
+          $(".questionBar").append(qButton);
+              
+
+          for (i=0; i<answerArray.length; i++){
+                  console.log(answerArray[i]);
+
+          //Creates Answer Buttons with some styling
+          var answerButton = $("<div>");
+              answerButton.text(answerArray[i]);
+              answerButton.addClass("a1");
+              answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
+              answerButton.attr("style", "width: 400px");
+          $(".answerBar").append(answerButton);
+          };
+
+     };
+
+     start();
+
+     };  //ends function play()
+     play();
+
+
+
 
      // counter
 
-     //randomized array of answers
-     $("#a1").text(answerArray[0]);
-     $("#a2").text(answerArray[1]);
-     $("#a3").text(answerArray[2]);
-     $("#a4").text(answerArray[3]);
-     
 
-     $("#a1").on("click", function() {
+
+     $("#a1").on("click", function() {                 //move out of function
           if (answerArray[0] === elements[0]){
                     console.log(elements[0]);
                     alert("Match");
@@ -110,15 +134,8 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
                };
           });
 
-     function reset(){
-               play();
-          };
+     // function reset(){
+     //           play();
+     //      };
 
-
-
-
-     };  //ends function play()
-
-     play();
-
-     });// closes .ready
+}); // closes .ready
