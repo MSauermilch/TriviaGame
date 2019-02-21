@@ -15,12 +15,22 @@
     
 }
 
-/* .title {
+.title {
     margin: auto;
     width: 200px;
-} */
+    font-family: 'Staatliches', cursive;
+    font-size: 96px;
+    font-weight: 700px;
+}
 
-#questionBar {
+.questionBox {
     border: solid blue 2px;
     border-radius: 4px;
+    padding: 20px;
+    font-family: 'Staatliches', cursive;
+    font-size: 28px;
+}
+
+.answerBar{
+    font-family: 'Staatliches', cursive;
 }

@@ -53,7 +53,7 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
      var questionArray = [  q01, q02, q03, q04, q05, q06, q07, q08, q09, q10, 
           q11, q12, q13, q14, q15, q16, q17, q18, q19, q20,
           q21, q22, q23, q24, q25, q26, q27, q28, q29, q30
-       ];
+          ];
 
      var userChoise = 0;
      var correct = 0;
@@ -63,79 +63,72 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
 
      function play() {
 
-     var randomQ = [questionArray[Math.floor(Math.random() * questionArray.length)]]; //generates random question
-          questionArray.shift(randomQ); //removes selected question from array
-               console.log("randomQ: " + randomQ);
+          var randomQ = [questionArray[Math.floor(Math.random() * questionArray.length)]]; //generates random question
+               questionArray.shift(randomQ); //removes selected question from array
+                    console.log("randomQ: " + randomQ);
 
-     var elements = randomQ.shift();// randomQ is an array with in an array, shift removes it and makes it simply an array.
-               console.log("elements: " + elements);
+          var elements = randomQ.shift();// randomQ is an array with in an array, shift removes it and makes it simply an array.
+                    console.log("elements: " + elements);
 
-     var question = elements[0]; //Game quesion.
-               console.log("question: " + question);
-     
-     elements.shift(elements[0]); //removes question/ first var[0] from arrays
+          var question = elements[0]; //Game quesion.
+                    console.log("question: " + question);
+          
+          elements.shift(elements[0]); //removes question/ first var[0] from arrays
 
-     var answerWin = elements[0]; //answer replaces question[0]'s place in array if users choice equals this win!!!!!
-               console.log("winning answer: " + answerWin);
+          var answerWin = elements[0]; //answer replaces question[0]'s place in array if users choice equals this win!!!!!
+                    console.log("winning answer: " + answerWin);
 
-     var answerArray = []; // empty random answer array
-               console.log(answerArray);
+          var answerArray = []; // empty random answer array
+                    console.log(answerArray);
 
-     elements.sort(function() {
-          return 0.5 - Math.random();
-          });
+          elements.sort(function() {
+               return 0.5 - Math.random();
+               });
 
-     for (var i = 0; i < elements.length; i++) {
-          answerArray.push(elements[i]);
+          for (var i = 0; i < elements.length; i++) {
+               answerArray.push(elements[i]);
+               };
+          
+          function start(){
+               //Creates Question
+               var qButton = $('<div>');
+               qButton.text(question);
+               qButton.addClass("questionBox");
+               $(".questionBar").append(qButton);
+               
+               for (i=0; i<answerArray.length; i++){
+                    console.log(answerArray[i]);
+
+               //Creates Answer Buttons with some styling
+               var answerButton = $("<div>");
+                    answerButton.text(answerArray[i]);
+                    answerButton.addClass("answerBox");
+                    answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
+                    answerButton.attr("style", "width: 400px");
+                    answerButton.attr("value", answerArray[i]);
+               $(".answerBar").append(answerButton);
+               };
           };
-     
-
-     function start(){
-          //Creates Question
-          var qButton = $('<div>');
-              qButton.text(question);
-          $(".questionBar").append(qButton);
-              
-
-          for (i=0; i<answerArray.length; i++){
-                  console.log(answerArray[i]);
-
-          //Creates Answer Buttons with some styling
-          var answerButton = $("<div>");
-              answerButton.text(answerArray[i]);
-              answerButton.addClass("a1");
-              answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
-              answerButton.attr("style", "width: 400px");
-          $(".answerBar").append(answerButton);
-          };
-
-     };
-
-     start();
-
+       start();
      };  //ends function play()
+     
      play();
-
-
 
 
      // counter
 
+     $("button").on("click", function() {
+                   
+          var buttonSelect = $(this).val("");    //how to define val?!
+               console.log(buttonSelect);
 
-
-     $("#a1").on("click", function() {                 //move out of function
-          if (answerArray[0] === elements[0]){
-                    console.log(elements[0]);
-                    alert("Match");
-                    reset();
-               } else {
-                    alert("Not a Match");
-                    rest();  
-               };
-          });
-
-     // function reset(){
-     //           play();
-     //      };
-
+          if (buttonSelect === answerWin) {
+               correct++;
+               play();
+               // reset TimeR;
+          } else {
+               play();
+               // reset TimeR;
+          };
+     });
 }); // closes .ready
