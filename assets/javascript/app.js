@@ -54,6 +54,9 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
           q11, q12, q13, q14, q15, q16, q17, q18, q19, q20,
           q21, q22, q23, q24, q25, q26, q27, q28, q29, q30
           ];
+          
+//   ------------------------------------------------------------------------------------
+
 
      var userChoise = 0;
      var correct = 0;
@@ -65,39 +68,43 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
 
           var randomQ = [questionArray[Math.floor(Math.random() * questionArray.length)]]; //generates random question
                questionArray.shift(randomQ); //removes selected question from array
-                    console.log("randomQ: " + randomQ);
+                    // console.log("randomQ: " + randomQ);
 
           var elements = randomQ.shift();// randomQ is an array with in an array, shift removes it and makes it simply an array.
-                    console.log("elements: " + elements);
+                    // console.log("elements: " + elements);
 
           var question = elements[0]; //Game quesion.
-                    console.log("question: " + question);
-          
-          elements.shift(elements[0]); //removes question/ first var[0] from arrays
+                    // console.log("question: " + question);
+
+          elements.shift(elements[0]); //removes question/ first var[0] from arrays   //need to work on. removing var not array
 
           var answerWin = elements[0]; //answer replaces question[0]'s place in array if users choice equals this win!!!!!
-                    console.log("winning answer: " + answerWin);
+                    // console.log("winning answer: " + answerWin);
 
           var answerArray = []; // empty random answer array
-                    console.log(answerArray);
+                    
 
-          elements.sort(function() {
+          elements.sort(function() {         //generates random numbers
                return 0.5 - Math.random();
                });
 
-          for (var i = 0; i < elements.length; i++) {
+          for (var i = 0; i < elements.length; i++) { // push elements back into array randomly
                answerArray.push(elements[i]);
                };
-          
+
+                    
           function start(){
+               $(".questionBar").empty();
+               $(".answerBar").empty();
+
                //Creates Question
                var qButton = $('<div>');
-               qButton.text(question);
-               qButton.addClass("questionBox");
+                    qButton.text(question);
+                    qButton.addClass("questionBox");
                $(".questionBar").append(qButton);
                
                for (i=0; i<answerArray.length; i++){
-                    console.log(answerArray[i]);
+                    // console.log(answerArray[i]);
 
                //Creates Answer Buttons with some styling
                var answerButton = $("<div>");
@@ -108,27 +115,38 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
                     answerButton.attr("value", answerArray[i]);
                $(".answerBar").append(answerButton);
                };
+               setClickEvent();
           };
        start();
-     };  //ends function play()
+     };  //play()
      
      play();
 
-
      // counter
+    function setClickEvent(){
+     $(".btn").click(function(answerWin){
+          // alert("click click yeah bitch!");
+          var userClick = $('.btn').attr('value');
+          console.log(userClick);
 
-     $("button").on("click", function() {
-                   
-          var buttonSelect = $(this).val("");    //how to define val?!
-               console.log(buttonSelect);
-
-          if (buttonSelect === answerWin) {
+          if (answerWin === userClick) {
+               alert("winner winner chicken dinner!");
+               correct++;
+               //play();
+          } else {
+               alert("yea suck dummy!");
                correct++;
                play();
-               // reset TimeR;
-          } else {
-               play();
-               // reset TimeR;
           };
      });
+     };
+     
+     
 }); // closes .ready
+
+
+fix shift issue with q&a Array
+fix if statement for correct answerArray
+add correct answer Counter 
+add timer with numbers on index page
+format index
