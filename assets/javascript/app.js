@@ -25,8 +25,6 @@ var q08 = ["The first movie to really put a Harley center stage was?",
 "The Wild Ones", "Mad Max", "Rebel with a cause", "Easy Rider"];
 
 var q09 = ["question10", "answer", "wrong1", "wrong2", "wrong3"];
-
-
 var q10 = ["question10", "answer", "wrong1", "wrong2", "wrong3"];
 var q11 = ["question11", "answer", "wrong1", "wrong2", "wrong3"];
 var q12 = ["question12", "answer", "wrong1", "wrong2", "wrong3"];
@@ -57,7 +55,6 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
           
 //   ------------------------------------------------------------------------------------
 
-
      var userChoise = 0;
      var correct = 0;
      var notCorrect = 0; // maybe create a percentage of correct answers
@@ -68,7 +65,7 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
 
           var randomQ = [questionArray[Math.floor(Math.random() * questionArray.length)]]; //generates random question
                questionArray.shift(randomQ); //removes selected question from array
-                    // console.log("randomQ: " + randomQ);
+                    console.log("randomQ: " + randomQ);
 
           var elements = randomQ.shift();// randomQ is an array with in an array, shift removes it and makes it simply an array.
                     // console.log("elements: " + elements);
@@ -145,8 +142,8 @@ var q30 = ["question30", "answer", "wrong1", "wrong2", "wrong3"];
 }); // closes .ready
 
 
-fix shift issue with q&a Array
-fix if statement for correct answerArray
-add correct answer Counter 
-add timer with numbers on index page
-format index
+// fix shift issue with q&a Array
+// fix if statement for correct answerArray
+// add correct answer Counter 
+// add timer with numbers on index page
+// format index
