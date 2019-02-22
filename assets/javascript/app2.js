@@ -220,24 +220,40 @@ $(document).ready(function(){
           
         //random number
         i = Math.floor(Math.random() * arr.length); //generates random number 
-            previousNumber.unshift(i);
-            console.log(previousNumber);
-
-            console.log("random number: " + i);
-            console.log("random wrong1: " + arr[i].w1);
-            console.log("random wrong2: " + arr[i].w2);
-            console.log("random wrong3: " + arr[i].w3);
-    
-
+            previousNumber.push(i);
+                console.log("random number: " + i);
+            
+            //question, answer, and wrong answer from object array
             var question = arr[i].question;
                 console.log("random question: " + arr[i].question);
             var answer = arr[i].ans;
                 console.log("random answer: " + arr[i].ans);
+            var wrongAns1 = arr[i].w1;
+                console.log("randWrongAns1: " + arr[i].w1);
+            var wrongAns2 = arr[i].w2;
+                console.log("randWrongAns1: " + arr[i].w2);
+            var wrongAns3 = arr[i].w3;
+                console.log("randWrongAns1: " + arr[i].w3);
+            // array of answer options
+            var ansArray = [answer, wrongAns1, wrongAns2, wrongAns3];
+
+        //Shuffles answer choices
+        function shuffle(ansArray) {
+            for (var i = ansArray.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              var temp = ansArray[i];
+              ansArray[i] = ansArray[j];
+              ansArray[j] = temp;
+            }
+          return ansArray;
+        }
+
+        shuffle(ansArray);
 
 
-          function start(){
+        function start(){
                $(".questionBar").empty();
-            //    $(".answerBar").empty();
+               $(".answerBar").empty();
             //    $(".timer").text(correct);    
 
              
@@ -248,16 +264,16 @@ $(document).ready(function(){
                $(".questionBar").append(qButton);
                
                //Creates Answer Buttons with some styling
-            //    for (i=0; i<answerArray.length; i++){
+               for (i=0; i<wrongAnsArray.length; i++){
 
-            //    var answerButton = $("<div>");
-            //         answerButton.text(answerArray[i]);
-            //         answerButton.addClass("answerBox");
-            //         answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
-            //         answerButton.attr("style", "width: 400px");
-            //         answerButton.attr("value", answerArray[i]);
-            //    $(".answerBar").append(answerButton);
-            //    };
+               var answerButton = $("<div>");
+                    answerButton.text(wrongAnsArray[i]);
+                    answerButton.addClass("answerBox");
+                    answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
+                    answerButton.attr("style", "width: 400px");
+                    answerButton.attr("value", wrongAnsArray[i]);
+               $(".answerBar").append(answerButton);
+               };
             //    setClickEvent();
           };
         start();
