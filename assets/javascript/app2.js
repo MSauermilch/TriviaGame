@@ -212,30 +212,26 @@ $(document).ready(function(){
             },  
     ]
 
-    var previousNumber =[];
-        console.log(previousNumber);
+    var correct = 0;
 
     //Game code
     function play() {
           
         //random number
         i = Math.floor(Math.random() * arr.length); //generates random number 
-            previousNumber.push(i);
-                console.log("random number: " + i);
-            
+                    
             //question, answer, and wrong answer from object array
             var question = arr[i].question;
-                console.log("random question: " + arr[i].question);
             var answer = arr[i].ans;
-                console.log("random answer: " + arr[i].ans);
             var wrongAns1 = arr[i].w1;
-                console.log("randWrongAns1: " + arr[i].w1);
             var wrongAns2 = arr[i].w2;
-                console.log("randWrongAns1: " + arr[i].w2);
             var wrongAns3 = arr[i].w3;
-                console.log("randWrongAns1: " + arr[i].w3);
+
             // array of answer options
             var ansArray = [answer, wrongAns1, wrongAns2, wrongAns3];
+
+        //removes selected object from array after random selections
+        arr.shift(ansArray[i]);
 
         //Shuffles answer choices
         function shuffle(ansArray) {
@@ -249,12 +245,12 @@ $(document).ready(function(){
         }
 
         shuffle(ansArray);
-
-
+        console.log(ansArray);
+        
         function start(){
                $(".questionBar").empty();
                $(".answerBar").empty();
-            //    $(".timer").text(correct);    
+               $(".score").text("Rider's Score: " + correct);    
 
              
                //Creates Question
@@ -264,48 +260,48 @@ $(document).ready(function(){
                $(".questionBar").append(qButton);
                
                //Creates Answer Buttons with some styling
-               for (i=0; i<wrongAnsArray.length; i++){
+               for (i=0; i<ansArray.length; i++){
 
                var answerButton = $("<div>");
-                    answerButton.text(wrongAnsArray[i]);
+                    answerButton.text(ansArray[i]);
                     answerButton.addClass("answerBox");
                     answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
                     answerButton.attr("style", "width: 400px");
-                    answerButton.attr("value", wrongAnsArray[i]);
+                    answerButton.attr("value", ansArray[i]);
                $(".answerBar").append(answerButton);
                };
-            //    setClickEvent();
+               setClickEvent();
           };
         start();
       };
     play();
-});
-//                                                                                                //COUNTER
-//     function setClickEvent(){
-//      $(".btn").click(function(correctAns){
-//           // alert("click click yeah bitch!");
-//           userClick = $('.btn').attr('value');
-//           console.log("userClick: " + userClick);
-//           console.log("correctAns: " + correctAns);
 
-//           if (correctAns === userClick) {                                                      //FIX LOGIC
-//                alert("winner winner chicken dinner!");
-//                correct++;
-//                //play();
-//           } else {
-//                alert("yea suck dummy!");
-//                correct++;
-//                play();
-//           };
-//      });
-//      };
+                                                                                               //COUNTER
+        function setClickEvent(){   
+
+        $(".btn").click(function() {
+            // alert("click click!");
+            userClick = $('.btn').attr('value');
+            console.log("userClick: " + userClick);
+            console.log("answer: " + arr[i].ans);
+
+            if ( arr[i].ans === userClick) {                                                      //FIX LOGIC
+                alert("winner winner chicken dinner!");
+                correct++;
+                play();
+            } else {
+                alert("yea lost!");
+                play();
+            };
+          });
+        };
+
      
-     
-// }); // closes .ready
+}); // closes .ready
 
 
-// fix shift issue with q&a Array
 // fix if statement for correct answerArray
+//reset
 
 // add correct answer Counter 
 // add timer with numbers on index page
