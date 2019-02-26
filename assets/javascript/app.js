@@ -1,264 +1,276 @@
 $(document).ready(function(){ 
 
-    var arr = [
-        {   question : "1What year did Harley Davidson invite the V-twin engine?",
-                a : "1909",
+    var questionArray = [
+        {   question : "What year did Harley Davidson invite the V-twin engine?",
+                ans : "1909",
                 w1 : "1890",
                 w2 : "1923",
                 w3 : "1913",
+                w4: "1909"
             },
 
-        {   question : "q1",
-            ans : "ans1",
+        {   question : "",
+            ans : "ans",
+            w1 : "w1",
+            w2 : "w2",
+            w3 : "w3",
+            w4: "w4"
+            },
+
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q2",
-            ans : "ans2",
-            w1 : "w1",
-            w2 : "w2",
-            w3 : "w3",
-            },
-
-        {   question : "q3",
-            ans : "ans3",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "q4",  //5
-            ans : "ans4",
+        {   question : "",  //5
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q5", 
-            ans : "ans5",
+        {   question : "", 
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q6",
-            ans : "ans6",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q7",
-            ans : "ans7",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q8",
-            ans : "ans8",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "q9",  //10
-            ans : "ans9",
+        {   question : "",  //10
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q10", 
-            ans : "ans10",
+        {   question : "", 
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q11",
-            ans : "ans11",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q12",
-            ans : "ans12",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q13",
-            ans : "ans13",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "q14",  //15
-            ans : "ans14",
+        {   question : "",  //15
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q15", 
-            ans : "ans15",
+        {   question : "", 
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q16",
-            ans : "ans16",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q17",
-            ans : "ans17",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q18",
-            ans : "ans18",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "q19",  //20
-            ans : "ans19",
+        {   question : "",  //20
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q20",
-            ans : "ans20",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q21", 
-            ans : "ans21",
+        {   question : "", 
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q22",
-            ans : "ans22",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q23",
-            ans : "ans23",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q24",  //25
-            ans : "ans24",
+        {   question : "",  //25
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "q25",
-            ans : "ans25",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q26", 
-            ans : "ans26",
+        {   question : "", 
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q27",
-            ans : "ans27",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q28",
-            ans : "ans28",
+        {   question : "",
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "q29",  //30
-            ans : "ans29",
+        {   question : "",  //30
+            ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
-    ]
+    ];
 
-    var correct = 0; // players score
-    var roundCounter = 0; // number of questions answered
-    var questions = arr.length-6; //array.length prior tp game
-   console.log(questions);
+    //creates and array that counts the number on objects in question array
+    var numArray = [];
 
-     //set click event to start game
-     // setTimeout(reset(), milliseconds)
-     // visual counter ticking down
+        for (i=0; i<questionArray.length; i++){
+            numArray.push(i);
+        };
+    
+    //randomizes the order of numbers in numArray 
+    function shuffleNumbers(){
+        for (var i = numArray.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = numArray[i];
+            numArray[i] = numArray[j];
+            numArray[j] = temp;
+        };
+    };
+        shuffleNumbers();
+            console.log("shuffled numbers: " + numArray);
 
+    var roundCounter = 0;
+    var numberOfQuestions = numArray.length;
+    var i = numArray[0]; //current question
+    var score = 0;
+    
+
+//---------------------------------------------------------------------------
     //Game code
     function play() {
-          
-        //random number
-        i = Math.floor(Math.random() * arr.length); //generates random number 
-
             //question, answer, and wrong answer from object array
-            var question = arr[i].question;
-            var answer = arr[i].ans;
-            var wrongAns1 = arr[i].w1;
-            var wrongAns2 = arr[i].w2;
-            var wrongAns3 = arr[i].w3;
-               console.log(arr[i].question);
+            var question = questionArray[i].question;
+            var answer = questionArray[i].ans;
+            var wrongAns1 = questionArray[i].w1;
+            var wrongAns2 = questionArray[i].w2;
+            var wrongAns3 = questionArray[i].w3;
+
             // array of answer options
             var ansArray = [answer, wrongAns1, wrongAns2, wrongAns3];
 
-        //removes selected object from array after random selections  //not functioning
-        arr.shift(ansArray[i]);
+            //Shuffles answer choices
+            function shuffleQuestions() {
+                for (var i = ansArray.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = ansArray[i];
+                ansArray[i] = ansArray[j];
+                ansArray[j] = temp;
+                };
+                // return ansArray;
+            };
 
-        //Shuffles answer choices
-        function shuffle(ansArray) {
-            for (var i = ansArray.length - 1; i > 0; i--) {
-              var j = Math.floor(Math.random() * (i + 1));
-              var temp = ansArray[i];
-              ansArray[i] = ansArray[j];
-              ansArray[j] = temp;
-            }
-          return ansArray;
-        };
+            shuffleQuestions();
+            console.log(ansArray);
 
-        shuffle(ansArray);
-        
-        function start(){
+        function questAnsConsole(){
+
                //clears page of content for each round.
                $(".questionBar").empty();
                $(".answerBar").empty();
-               $(".score").text("Rider's Score: " + correct);    
-
              
                //Creates Question
                var qButton = $('<div>');
@@ -279,48 +291,42 @@ $(document).ready(function(){
                };
                setClickEvent();
           };
-        start();
-
+          questAnsConsole();
       };
+
     play();
+
                                                                                                //timer
-        function setClickEvent(){   
+        function setClickEvent(){                                   
 
         $(".btn").click(function() {
-            // alert("click click!");
             userClick = $(this).attr('value');
-          //   console.log("userClick: " + userClick);
-          //   console.log("answer: " + arr[i].ans);
+            console.log("userClick: " + userClick);
 
+            if (roundCounter === numberOfQuestions){                                        // if statement are scope
+                $(".questionBar").empty();
+                $(".answerBar").empty();
 
-            if (questions === roundCounter) {
-               $(".questionBar").empty();
-               $(".answerBar").empty();
                 var qButton = $('<div>');
-                    qButton.addClass("col-12 questionBox");
-                    qButton.text("Your Score is " + correct + " out of " + questions);
-               $(".questionBar").append(qButton);
-            } else if ( arr[i].ans === userClick) {
-               //  alert("winner winner chicken dinner!");
-                correct++;
+                qButton.text("You got " + score + " out of " + numberOfQuestions + "!");
+                qButton.addClass("col-12 questionBox2");
+                $(".questionBar").append(qButton);
+            
+            } else if (questionArray[i].ans === userClick) {
+                alert("winner winner chicken dinner!");
+                score++;
                 roundCounter++;
                 play();
+
             } else {
-               //  alert("yea lost!");
+                // alert("yea lost!");
                roundCounter++;
                 play();
             };
-
-            console.log(roundCounter);
-            console.log(questions);
-
+            console.log("number of rounds " + roundCounter);
+            console.log(score);
           });
-        }; // closes setClickEvent()
-
-        function reset() {
-
-        }
-
+        };
 
 }); // closes .ready
 
@@ -330,4 +336,7 @@ $(document).ready(function(){
 
 // add timer with numbers on index page
 
+
 // format index
+
+//<button data-questionNum=24 > </button>
