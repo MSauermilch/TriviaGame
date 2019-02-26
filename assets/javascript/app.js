@@ -1,11 +1,12 @@
 $(document).ready(function(){ 
 
-    var arr = [
-        {   question : "1What year did Harley Davidson invite the V-twin engine?",
-                a : "1909",
+    var questionArray = [
+        {   question : "What year did Harley Davidson invite the V-twin engine?",
+                ans : "1909",
                 w1 : "1890",
                 w2 : "1923",
                 w3 : "1913",
+                w4: "1909"
             },
 
         {   question : "",
@@ -13,6 +14,7 @@ $(document).ready(function(){
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
+            w4: "w4"
             },
 
         {   question : "",
@@ -210,53 +212,70 @@ $(document).ready(function(){
             w2 : "w2",
             w3 : "w3",
             },  
-    ]
+    ];
 
-    var correct = 0;
+    //creates and array that counts the number on objects in question array
+    var numArray = [];
 
+        for (i=0; i<questionArray.length; i++){
+            numArray.push(i);
+        };
+    
+    //randomizes the order of numbers in numArray 
+    function shuffleNumbers(){
+        for (var i = numArray.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = numArray[i];
+            numArray[i] = numArray[j];
+            numArray[j] = temp;
+        };
+    };
+        shuffleNumbers();
+            console.log("shuffled numbers: " + numArray);
+
+    var roundCounter = 0;
+    var numberOfQuestions = numArray.length;
+    var i = numArray[0]; //current question
+    var score = 0;
+    
+
+//---------------------------------------------------------------------------
     //Game code
     function play() {
-          
-        //random number
-        i = Math.floor(Math.random() * arr.length); //generates random number 
-                    
             //question, answer, and wrong answer from object array
-            var question = arr[i].question;
-            var answer = arr[i].ans;
-            var wrongAns1 = arr[i].w1;
-            var wrongAns2 = arr[i].w2;
-            var wrongAns3 = arr[i].w3;
+            var question = questionArray[i].question;
+            var answer = questionArray[i].ans;
+            var wrongAns1 = questionArray[i].w1;
+            var wrongAns2 = questionArray[i].w2;
+            var wrongAns3 = questionArray[i].w3;
 
             // array of answer options
             var ansArray = [answer, wrongAns1, wrongAns2, wrongAns3];
 
-        //removes selected object from array after random selections
-        arr.shift(ansArray[i]);
+            //Shuffles answer choices
+            function shuffleQuestions() {
+                for (var i = ansArray.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = ansArray[i];
+                ansArray[i] = ansArray[j];
+                ansArray[j] = temp;
+                };
+                // return ansArray;
+            };
 
-        //Shuffles answer choices
-        function shuffle(ansArray) {
-            for (var i = ansArray.length - 1; i > 0; i--) {
-              var j = Math.floor(Math.random() * (i + 1));
-              var temp = ansArray[i];
-              ansArray[i] = ansArray[j];
-              ansArray[j] = temp;
-            }
-          return ansArray;
-        }
+            shuffleQuestions();
+            console.log(ansArray);
 
-        shuffle(ansArray);
-        console.log(ansArray);
-        
-        function start(){
+        function questAnsConsole(){
+
+               //clears page of content for each round.
                $(".questionBar").empty();
                $(".answerBar").empty();
-               $(".score").text("Rider's Score: " + correct);    
-
              
                //Creates Question
                var qButton = $('<div>');
                     qButton.text(question);
-                    qButton.addClass("questionBox");
+                    qButton.addClass("col-12 questionBox");
                $(".questionBar").append(qButton);
                
                //Creates Answer Buttons with some styling
@@ -264,7 +283,7 @@ $(document).ready(function(){
 
                var answerButton = $("<div>");
                     answerButton.text(ansArray[i]);
-                    answerButton.addClass("answerBox");
+                    // answerButton.addClass("answerBox");
                     answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
                     answerButton.attr("style", "width: 400px");
                     answerButton.attr("value", ansArray[i]);
@@ -272,37 +291,52 @@ $(document).ready(function(){
                };
                setClickEvent();
           };
-        start();
+          questAnsConsole();
       };
+
     play();
 
-                                                                                               //COUNTER
-        function setClickEvent(){   
+                                                                                               //timer
+        function setClickEvent(){                                   
 
         $(".btn").click(function() {
-            // alert("click click!");
             userClick = $(this).attr('value');
             console.log("userClick: " + userClick);
-            console.log("answer: " + arr[i].ans);
 
-            if ( arr[i].ans === userClick) {                                                      //FIX LOGIC
+            if (roundCounter === numberOfQuestions){                                        // if statement are scope
+                $(".questionBar").empty();
+                $(".answerBar").empty();
+
+                var qButton = $('<div>');
+                qButton.text("You got " + score + " out of " + numberOfQuestions + "!");
+                qButton.addClass("col-12 questionBox2");
+                $(".questionBar").append(qButton);
+            
+            } else if (questionArray[i].ans === userClick) {
                 alert("winner winner chicken dinner!");
-                correct++;
+                score++;
+                roundCounter++;
                 play();
+
             } else {
-                alert("yea lost!");
+                // alert("yea lost!");
+               roundCounter++;
                 play();
             };
+            console.log("number of rounds " + roundCounter);
+            console.log(score);
           });
         };
 
-     
 }); // closes .ready
 
 
-// fix if statement for correct answerArray
+
 //reset
 
-// add correct answer Counter 
 // add timer with numbers on index page
+
+
 // format index
+
+//<button data-questionNum=24 > </button>
