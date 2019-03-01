@@ -37,6 +37,14 @@
     font-size: 28px;
 }
 
-.answerBar{
+.answerBox0,
+.answerBox1,
+.answerBox2,
+.answerBox3 {
     font-family: 'Staatliches', cursive;
+    border: solid blue 2px;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
 }

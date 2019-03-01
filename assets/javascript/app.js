@@ -9,7 +9,7 @@ $(document).ready(function(){
                 w4: "1909"
             },
 
-        {   question : "",
+        {   question : "2",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
@@ -17,196 +17,196 @@ $(document).ready(function(){
             w4: "w4"
             },
 
-        {   question : "",
+        {   question : "3",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "4",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "",  //5
+        {   question : "5",  //5
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "", 
+        {   question : "6", 
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "7",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "8",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "9",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "",  //10
+        {   question : "10",  //10
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "", 
+        {   question : "11", 
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "12",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "13",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "14",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "",  //15
+        {   question : "15",  //15
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "", 
+        {   question : "16", 
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "17",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "18",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "19",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "",  //20
+        {   question : "20",  //20
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "21",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "", 
+        {   question : "22", 
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "23",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "24",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",  //25
+        {   question : "25",  //25
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },  
 
-        {   question : "",
+        {   question : "26",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "", 
+        {   question : "27", 
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "28",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",
+        {   question : "29",
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
             w3 : "w3",
             },
 
-        {   question : "",  //30
+        {   question : "30",  //30
             ans : "ans",
             w1 : "w1",
             w2 : "w2",
@@ -233,9 +233,8 @@ $(document).ready(function(){
         shuffleNumbers();
             console.log("shuffled numbers: " + numArray);
 
+    var i = numArray[0]; //current question Object's location reference number
     var roundCounter = 0;
-    var numberOfQuestions = numArray.length;
-    var i = numArray[0]; //current question
     var score = 0;
     
 
@@ -249,47 +248,32 @@ $(document).ready(function(){
             var wrongAns2 = questionArray[i].w2;
             var wrongAns3 = questionArray[i].w3;
 
-            // array of answer options
-            var ansArray = [answer, wrongAns1, wrongAns2, wrongAns3];
-            
+                // array of answer options
+                var ansArray = [answer, wrongAns1, wrongAns2, wrongAns3];
+                
+                    //Shuffles answer choices, return shuffled ansArray;
+                    function shuffleQuestions() {
+                        for (var i = ansArray.length - 1; i > 0; i--) {
+                        var j = Math.floor(Math.random() * (i + 1));
+                        var temp = ansArray[i];
+                        ansArray[i] = ansArray[j];
+                        ansArray[j] = temp;
+                        };
+                    };
 
-            //Shuffles answer choices
-            function shuffleQuestions() {
-                for (var i = ansArray.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = ansArray[i];
-                ansArray[i] = ansArray[j];
-                ansArray[j] = temp;
-                };
-                // return ansArray;
-            };
-
-            shuffleQuestions();
-            console.log(ansArray);
+                    shuffleQuestions();
 
         function questAnsConsole(){
 
-               //clears page of content for each round.
-            
-               $(".answerBar").empty();
-             
                //Writes Question on game screen
-            
-            $(".questionBar").text(questionArray[i].question);
-            console.log(questionArray[i].question);
-               
-               //Creates Answer Buttons with some styling
-               for (i=0; i<ansArray.length; i++){
+                $(".questionBox").text(questionArray[i].question);
+                    console.log(questionArray[i].question);
+                    $(".answerBox0").text(ansArray[0]).attr("value", ansArray[0]);
+                    $(".answerBox1").text(ansArray[1]).attr("value", ansArray[1]);
+                    $(".answerBox2").text(ansArray[2]).attr("value", ansArray[2]);
+                    $(".answerBox3").text(ansArray[3]).attr("value", ansArray[3]);
 
-               var answerButton = $("<div>");
-                    answerButton.text(ansArray[i]);
-                    // answerButton.addClass("answerBox");
-                    answerButton.attr("class","btn btn-outline-primary mt-2 ml-4 mb-3");
-                    answerButton.attr("style", "width: 400px");
-                    answerButton.attr("value", ansArray[i]);
-               $(".answerBar").append(answerButton);
-               };
-               setClickEvent();
+                setClickEvent();
           };
           questAnsConsole();
 
@@ -310,15 +294,13 @@ $(document).ready(function(){
 
         function setClickEvent(){                                   
 
-        $(".btn").click(function() {
+        $("<div>").click(function() {
             userClick = $(this).attr('value');
             console.log("userClick: " + userClick);
 
             if (roundCounter === numArray.length){                                
-                // $(".questionBar").empty();
-                $(".answerBar").empty();
                 $(".questionBox").text("You got " + score + " out of " + numArray.length + "!"); //Format text so that it is larger!
-        
+                $(".answerArea").hide();
 
             } else if (questionArray[i].ans === userClick) {
                 alert("winner winner chicken dinner!");
