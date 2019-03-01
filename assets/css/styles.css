@@ -23,6 +23,12 @@
     font-weight: 700px;
 }
 
+.timer{
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px;
+}
+
 .questionBox {
     border: solid blue 2px;
     border-radius: 4px;

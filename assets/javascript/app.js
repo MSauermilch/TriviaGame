@@ -251,6 +251,7 @@ $(document).ready(function(){
 
             // array of answer options
             var ansArray = [answer, wrongAns1, wrongAns2, wrongAns3];
+            
 
             //Shuffles answer choices
             function shuffleQuestions() {
@@ -269,14 +270,13 @@ $(document).ready(function(){
         function questAnsConsole(){
 
                //clears page of content for each round.
-               $(".questionBar").empty();
+            
                $(".answerBar").empty();
              
-               //Creates Question
-               var qButton = $('<div>');
-                    qButton.text(question);
-                    qButton.addClass("col-12 questionBox");
-               $(".questionBar").append(qButton);
+               //Writes Question on game screen
+            
+            $(".questionBar").text(questionArray[i].question);
+            console.log(questionArray[i].question);
                
                //Creates Answer Buttons with some styling
                for (i=0; i<ansArray.length; i++){
@@ -292,26 +292,34 @@ $(document).ready(function(){
                setClickEvent();
           };
           questAnsConsole();
+
+                                    //timer
+                                    // setInterval(timer, 1000);
+                                    // var clock = 30;
+
+                                    // function timer(){
+                                    //     clock--;
+                                    //     $(".timer").text(clock);
+                                    // console.log(clock);
+                                    // };
+
       };
 
     play();
 
-                                                                                               //timer
+
         function setClickEvent(){                                   
 
         $(".btn").click(function() {
             userClick = $(this).attr('value');
             console.log("userClick: " + userClick);
 
-            if (roundCounter === numberOfQuestions){                                        // if statement are scope
-                $(".questionBar").empty();
+            if (roundCounter === numArray.length){                                
+                // $(".questionBar").empty();
                 $(".answerBar").empty();
+                $(".questionBox").text("You got " + score + " out of " + numArray.length + "!"); //Format text so that it is larger!
+        
 
-                var qButton = $('<div>');
-                qButton.text("You got " + score + " out of " + numberOfQuestions + "!");
-                qButton.addClass("col-12 questionBox2");
-                $(".questionBar").append(qButton);
-            
             } else if (questionArray[i].ans === userClick) {
                 alert("winner winner chicken dinner!");
                 score++;
