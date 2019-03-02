@@ -1,6 +1,6 @@
 #body{
     background-image: url(../images/harley3.jpg);
-    padding: 100px;
+    padding: 50px;
 }
 
 .container{
@@ -37,11 +37,10 @@
     font-size: 28px;
 }
 
-.answerBox0,
 .answerBox1,
 .answerBox2,
-.answerBox3 {
-    font-family: 'Staatliches', cursive;
+.answerBox3,
+.answerBox4 {
     border: solid blue 2px;
     border-radius: 4px;
     padding: 10px;

@@ -265,18 +265,18 @@ $(document).ready(function(){
 
         function questAnsConsole(){
 
-               //Writes Question on game screen
+               //Writes Question on screen.
                 $(".questionBox").text(questionArray[i].question);
-                    console.log(questionArray[i].question);
-                    $(".answerBox0").text(ansArray[0]).attr("value", ansArray[0]);
-                    $(".answerBox1").text(ansArray[1]).attr("value", ansArray[1]);
-                    $(".answerBox2").text(ansArray[2]).attr("value", ansArray[2]);
-                    $(".answerBox3").text(ansArray[3]).attr("value", ansArray[3]);
+                    //Writes Answer on screen.
+                    $(".answerBox1").text(ansArray[0]).attr("value", ansArray[0]);
+                    $(".answerBox2").text(ansArray[1]).attr("value", ansArray[1]);
+                    $(".answerBox3").text(ansArray[2]).attr("value", ansArray[2]);
+                    $(".answerBox4").text(ansArray[3]).attr("value", ansArray[3]);
 
-                setClickEvent();
+                
           };
           questAnsConsole();
-
+          setClickEvent();
                                     //timer
                                     // setInterval(timer, 1000);
                                     // var clock = 30;
@@ -287,16 +287,16 @@ $(document).ready(function(){
                                     // console.log(clock);
                                     // };
 
-      };
+      };// closes Play
 
     play();
 
+        function setClickEvent(){
 
-        function setClickEvent(){                                   
-
-        $("<div>").click(function() {
-            userClick = $(this).attr('value');
-            console.log("userClick: " + userClick);
+            $("button").click(function() {
+               var userClick = document.getElementById(".button").Value;
+               console.log(this);
+               alert(userClick);
 
             if (roundCounter === numArray.length){                                
                 $(".questionBox").text("You got " + score + " out of " + numArray.length + "!"); //Format text so that it is larger!
@@ -309,15 +309,14 @@ $(document).ready(function(){
                 play();
 
             } else {
-                // alert("yea lost!");
+                alert("yea lost!");
                roundCounter++;
                 play();
             };
             console.log("number of rounds " + roundCounter);
             console.log(score);
-          });
+           });
         };
-
 }); // closes .ready
 
 
@@ -330,3 +329,4 @@ $(document).ready(function(){
 // format index
 
 //<button data-questionNum=24 > </button>
+
